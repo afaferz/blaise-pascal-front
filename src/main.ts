@@ -5,6 +5,6 @@ import { store } from "./store";
 import "./assets/tailwind.css";
 
 createApp(App)
-  .use(router)
-  .use(store)
-  .mount("#app");
+    .use(router)
+    .use(store)
+    .mount("#app");

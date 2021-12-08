@@ -1,0 +1,27 @@
+/* //Placeholders
+%texto-padrao {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold; */
+/* } */
+/* 
+//Mixin's
+@mixin section($padding-top,) {
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 2em;
+  padding-top: $padding-top;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+:root {
+    --primary: #2c3e50;
+    --secondary: #a3cff6;
+    --thirty: #495d72;
+    --main-dark: #333;
+    --font-link: "Prata", serif;
+    --font-writter: "Satisfy", cursive;
+}
