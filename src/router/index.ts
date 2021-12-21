@@ -1,4 +1,5 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+// import NProgress from "nprogress";
 import Home from "@/views/home.vue";
 // import Obras from "@/views/Obras.vue";
 // import Frases from "@/views/Frases.vue";
@@ -45,5 +46,21 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
 });
+
+// router.beforeResolve((to, from, next) => {
+//     // If this isn't an initial page load.
+//     if (to.name) {
+//         console.log('Sai')
+//         // Start the route progress bar.
+//         // NProgress.start()
+//     }
+//     next()
+// })
+
+// // router.afterEach((to, from) => {
+// //     // Complete the animation of the route progress bar.
+// //     NProgress.set(1);
+// //     NProgress.done()
+// // })   
 
 export default router;

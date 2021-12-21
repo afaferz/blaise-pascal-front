@@ -5,6 +5,33 @@
             component(:is="Component")
 </template>
 
+<script lang="ts">
+import { defineComponent, onMounted, onUpdated } from "vue";
+import { useStore } from "vuex";
+
+export default defineComponent({
+    setup() {
+        const store = useStore();
+
+        const onLoading = () => {
+            document.onreadystatechange = () => {
+                if (document.readyState === "complete") {
+                    console.log("OIOI ACABOU");
+                    setTimeout(
+                        () => store.dispatch("GET_LOADING", false),
+                        1800
+                    );
+                } else {
+                    store.dispatch("GET_LOADING", true);
+                }
+            };
+        };
+        onMounted(onLoading);
+        onUpdated(onLoading);
+    },
+});
+</script>
+
 <style>
 #app {
     background: #2c3e50;

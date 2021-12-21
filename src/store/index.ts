@@ -1,26 +1,17 @@
 import { createStore } from "vuex";
+import { IRootState } from "@/store/@interfaces/root";
+import { LoaderStoreModuleTypes } from "./modules/loader/types";
+// import { RootStoreModuleTypes } from "./modules/root/types";
 
-export type State = { counter: number };
+import root from "./modules/root";
 
-const state: State = { counter: 0 };
+export const store = createStore<IRootState>(root);
 
-export const store = createStore({
-  state,
-  mutations: {
-    increment(state, payload) {
-      state.counter++;
-    }
-  },
-  actions: {
-    increment({ commit }) {
-      commit("increment");
-    }
-  },
+type StoreModules = {
+    loader: LoaderStoreModuleTypes;
+    // root: RootStoreModuleTypes;
+};
 
-  getters: {
-    counter(state) {
-      return state.counter;
-    }
-  },
-  modules: {}
-});
+export type Store = LoaderStoreModuleTypes<Pick<StoreModules, "loader">> &
+    LoaderStoreModuleTypes<Pick<StoreModules, "loader">>
+    // RootStoreModuleTypes<Pick<StoreModules, "root">>;
