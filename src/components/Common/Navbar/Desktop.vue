@@ -1,5 +1,5 @@
 <template lang="pug">
-nav.navbar
+nav.navbar.navbar-desktop
     ul.navbar-list
         li.navbar-item(v-for="(route, index) in routes", :key="route.path")
             RouterLink.navbar-link.p-4(:to="route.path")
@@ -44,6 +44,11 @@ export default defineComponent({
 /* .navbar {
     max-width: 1024px;
 } */
+@media screen and (max-width: 600px) {
+    .navbar-desktop {
+        display: none;
+    }
+}
 .navbar-list {
     display: flex;
     flex-direction: row;
