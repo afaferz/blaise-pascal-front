@@ -1,4 +1,4 @@
-# ts-vue-3-youtube-ex
+# Pascal
 
 ## Project setup
 ```
