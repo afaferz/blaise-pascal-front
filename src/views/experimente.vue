@@ -1,5 +1,6 @@
 <template lang="pug">
-LayoutDefault Experimente
+LayoutDefault
+    section.container.mx-auto.h-screen Experimente
 </template>
 
 <script>

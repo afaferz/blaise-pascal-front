@@ -1,5 +1,6 @@
 <template lang="pug">
-LayoutDefault Frases
+LayoutDefault
+    section.container.mx-auto.h-screen Frases
 </template>
 
 <script>

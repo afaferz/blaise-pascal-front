@@ -1,16 +1,16 @@
 <template lang="pug">
-LayoutDefault Obras
+LayoutDefault
+    section.container.mx-auto.h-screen Obras
 </template>
 
 <script>
-import LayoutDefault from "@/layouts/default.vue";
+import LayoutDefault from '@/layouts/default.vue';
 
 export default {
-    name: "Obras",
+    name: 'Obras',
     components: {
-        LayoutDefault
-    }
+        LayoutDefault,
+    },
 };
 </script>
-<style lang="postcss">
-</style>
+<style lang="postcss"></style>
