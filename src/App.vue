@@ -1,33 +1,42 @@
 <template lang="pug">
-#app
-    RouterView(v-slot="{ Component }")
-        Transition(name="slide-fade", mode="out-in")
-            component(:is="Component")
+#app(:style="{ opacity: loading ? 0 : 1 }")
+    div(v-if="!loading")
+        RouterView(v-slot="{ Component }")
+            Transition(name="slide-fade", mode="out-in")
+                component(:is="Component")
+    div(v-else)
+        Teleport(to="body") 
+            Loader
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUpdated } from "vue";
-import { useStore } from "vuex";
+import { defineComponent, computed, onMounted, onUpdated } from 'vue';
+import { useStore } from 'vuex';
+import Loader from '@/components/Custom/Loader.vue';
 
 export default defineComponent({
     setup() {
         const store = useStore();
+        const loading = computed(() => store.getters['getLoading']);
 
         const onLoading = () => {
             document.onreadystatechange = () => {
-                if (document.readyState === "complete") {
+                if (document.readyState === 'complete') {
                     // Simulação de loading
-                    setTimeout(
-                        () => store.dispatch("GET_LOADING", false),
-                        2500
-                    );
+                    setTimeout(() => store.commit('SET_LOADING', false), 2500);
                 } else {
-                    store.dispatch("GET_LOADING", true);
+                    store.commit('SET_LOADING', true);
                 }
             };
         };
         onMounted(onLoading);
         onUpdated(onLoading);
+        return {
+            loading,
+        };
+    },
+    components: {
+        Loader,
     },
 });
 </script>
@@ -36,6 +45,9 @@ export default defineComponent({
 #app {
     background: #2c3e50;
     min-height: 100vh;
+}
+[v-cloack] {
+    display: none;
 }
 .slide-fade-enter-active {
     transition: all 0.5s ease;

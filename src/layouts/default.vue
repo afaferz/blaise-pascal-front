@@ -4,40 +4,31 @@ div
     main.layoutDefault__main
         slot
     Footer
-    Teleport(to="body") 
-        Loader(:start-loader="loading")
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
-import { useStore } from "vuex";
+import { defineComponent, computed } from 'vue';
+import { useStore } from 'vuex';
 
-import Header from "@/components/Common/Header.vue";
-import Footer from "@/components/Common/Footer.vue";
-import Loader from "@/components/Custom/Loader.vue";
+import Header from '@/components/Common/Header.vue';
+import Footer from '@/components/Common/Footer.vue';
+import Loader from '@/components/Custom/Loader.vue';
 
 export default defineComponent({
     setup() {
         const store = useStore();
+        const loading = computed(() => store.getters['getLoading']);
         return {
-            loading: computed(() => store.state["LoaderModule"].loading),
+            loading,
             store,
         };
     },
-    name: "LayoutDefault",
+    name: 'LayoutDefault',
     components: {
         Header,
         Footer,
         Loader,
     },
-    data() {
-        return {};
-    },
-
-    updated() {
-        // run something after dom has changed by vue
-    },
 });
 </script>
-<style lang="postcss">
-</style>
+<style lang="postcss"></style>

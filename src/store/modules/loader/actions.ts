@@ -9,8 +9,7 @@ import {
 
 export const actions: ActionTree<ILoaderStates, IRootState> &
     LoaderActionTypes = {
-    [LoaderActions.GET_LOADING]({ commit }, payload: boolean) {
-        console.log(payload);
+    [LoaderActions.SET_LOADING]({ commit }, payload: boolean) {
         commit(LoaderMutations.SET_LOADING, payload);
     }
 };

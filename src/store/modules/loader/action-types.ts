@@ -1,3 +1,3 @@
 export enum LoaderActions {
-    GET_LOADING = "GET_LOADING"
+    SET_LOADING = "SET_LOADING"
 }
