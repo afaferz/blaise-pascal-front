@@ -16,10 +16,10 @@ export default defineComponent({
         const onLoading = () => {
             document.onreadystatechange = () => {
                 if (document.readyState === "complete") {
-                    console.log("OIOI ACABOU");
+                    // Simulação de loading
                     setTimeout(
                         () => store.dispatch("GET_LOADING", false),
-                        1800
+                        2500
                     );
                 } else {
                     store.dispatch("GET_LOADING", true);

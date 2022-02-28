@@ -19,7 +19,6 @@ import Loader from "@/components/Custom/Loader.vue";
 export default defineComponent({
     setup() {
         const store = useStore();
-
         return {
             loading: computed(() => store.state["LoaderModule"].loading),
             store,
@@ -34,7 +33,10 @@ export default defineComponent({
     data() {
         return {};
     },
-    
+
+    updated() {
+        // run something after dom has changed by vue
+    },
 });
 </script>
 <style lang="postcss">
